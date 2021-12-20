@@ -900,6 +900,7 @@ $(function () {
     ) {
         $(".mobile").css("display", "block");
         $(".desc").css("display", "none");
+        $(".instruct").css("display", "none");
         $(document).on("taphold", ".dropped-element", function () {
             $(this).remove();
         });
