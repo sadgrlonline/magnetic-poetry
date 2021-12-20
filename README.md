@@ -1,6 +1,7 @@
 # Magnetic Poetry Maker
 
 This is a full-featured magnetic poetry maker written in HTML, CSS, and Javascript (jQuery).
+
 You can [see it live here](https://sadgrl.online/magnet-poetry/).
 
 ## Features
