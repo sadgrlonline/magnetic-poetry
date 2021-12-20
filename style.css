@@ -1,0 +1,433 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    scrollbar-color: #484182 #6075B8;
+    scrollbar-width: thin;
+}
+
+details ul {
+    color: white;
+}
+
+.input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.magnet {
+    cursor: grab;
+    background-color: white;
+    color: black;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+body {
+    font-family: sans-serif;
+    background-image: url('https://sadgrl.online/images/new/peaceful.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#maximize {
+    display: none;
+}
+
+summary.updates {
+    color: white !important;
+}
+
+h1 {
+    font-family: Georgia;
+    font-size: 3vw;
+    color: #AA6FE7;
+    text-shadow: 1px 1px white;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+#container {
+    display: flex;
+    overflow: hidden;
+
+
+}
+
+.wordBankWrapper {
+    max-width: 30%;
+    height: 100vh;
+}
+
+.flex-jc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wordBank {
+    border: 1px solid #1f367c;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #424056;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+
+.wordBank a {
+    color: #FC94AF;
+    text-decoration: none;
+}
+
+#chooseWords p {
+    color: white;
+}
+
+#chooseWords p strong {
+    color: #FC94AF;
+}
+
+#chooseWords summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #AA6FE7;
+}
+
+#clearCustomization {
+    font-size: 10px;
+    font-style: italic;
+}
+
+#export {
+    display: none;
+    text-align: center;
+}
+
+#minimize-ctn {
+    width: 100%;
+    position: relative;
+}
+
+#canvasWrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.canvas {
+    content: '';
+    width: 100%;
+    position: relative;
+    border: 1px solid #6075B8;
+    background-color: #FED4E0;
+    height: 100vh;
+    z-index: 1;
+
+}
+
+#chooseWords {
+    width: 100%;
+    height: 100vh;
+}
+
+.dragWord {
+    height: 20px;
+    text-align: center;
+    padding: 3px;
+    z-index: 2;
+    cursor: grab;
+}
+
+.myWords {
+    margin-bottom: 0;
+}
+
+#clearHistory {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.addOnWords {
+    height: 20px;
+    border-left: none;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 1px;
+    padding-left: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    z-index: 2;
+}
+
+.wordStyle {
+    height: 20px;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 1px;
+    background-color: white;
+    cursor: grab;
+}
+
+p.none {
+    display: none;
+}
+
+#addWord {
+    background-color: blue;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #292835;
+    border: 1px solid white;
+
+}
+
+.dropped-element {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.verbs {
+    border-bottom: 2px solid purple;
+}
+
+#suffixes,
+#commonWords,
+#nouns,
+#verbs,
+#otherWords,
+#myWords {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.wordBankWrapper h3 {
+    color: white;
+}
+
+.wordBankWrapper h2,
+#canvasWrapper h2 {
+    font-family: Verdana;
+    color: #484182;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#footer {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#footer a {
+    color: #484182;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background-color: #6075B8;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f2b1a4;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #384672;
+}
+
+.mobile {
+    display: none;
+}
+
+.none {
+    display: none;
+}
+
+#minimize {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#clearCanvas {
+    z-index: 99;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}
+
+#clearCanvas {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#exportPoem {
+    font-weight: bold;
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    z-index: 99;
+}
+
+#exportText {
+    display: none;
+}
+
+p.sorry {
+    display: none;
+    color: red !important;
+}
+
+details,
+details strong {
+    color: white;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex>div {
+    margin-right: 10px;
+}
+
+h3 {
+    padding-bottom: 1px;
+    color: white !important;
+}
+
+#clearBankHistory {
+    margin-top: -10px !important;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 10px;
+    font-style: italic;
+    max-width: 50px;
+}
+
+input[type=color] {
+    border: none;
+    margin-left: 10px;
+    height: 15px;
+    padding: 0;
+    width: 20px;
+}
+
+.inner-customize {
+    background-color: #4d4b63;
+    padding: 20px;
+}
+
+.ui-draggable-dragging {
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75) !important;
+    z-index: 200 !important;
+}
+
+.customize>summary {
+    font-size: 18px !important;
+}
+
+select {
+    background-color: white;
+    font-size: 12px !important;
+    height: 25px;
+}
+
+.dragging {
+    color: blue;
+}
+
+.suffix {
+    border-left: none !important;
+}
+
+details>details>summary,
+details>ul>li,
+details>p {
+    font-size: 14px;
+}
+
+
+@media only screen and (max-width: 906px) {
+
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        overflow: hidden;
+    }
+
+    .wordBankWrapper {
+        order: 2;
+        max-width: 100%;
+        max-height: 50vh;
+        padding-top: 0;
+
+
+    }
+
+    .wordBank {
+        max-width: 100%;
+        max-height: 50vh;
+
+    }
+
+    #canvasWrapper {
+        max-height: 50vh;
+    }
+
+    .canvas {
+        order: 1;
+        max-height: 50vh;
+    }
+
+    #chooseWords {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #suffixes,
+    #commonWords,
+    #nouns,
+    #verbs,
+    #otherWords {
+        width: 100% !important;
+        height: auto;
+        display: flex;
+    }
+
+    h2 {
+        display: none;
+    }
+
+    .mobile {
+        font-size: 10px;
+        text-align: center;
+        color: #384672;
+    }
+}

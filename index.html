@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <title>Magnet Poetry</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.css">
+    <meta property="og:url" content="https://sadgrl.online/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Magnet Poetry" />
+    <meta property="og:description" content="Because words ARE FREE!" />
+    <meta property="og:image" content="https://sadgrl.online/images/og/magnet_poetry.png" />
+    <meta property="twitter:card" content="summary_large_image">
+
+
+
+    <link rel="icon" href="/images/fav.gif" type="image/gif" />
+    <meta name="description" content="A magnetic poetry maker tool.">
+    <meta name="robots" content="index, follow">
+</head>
+
+<body>
+    <div id="export">Your image has been exported, check your downloads! <span id="exportUrl"></span></div>
+    <div id="container">
+        <div class="wordBankWrapper">
+            <div class="wordBank scroll">
+                <a href="#" id="maximize">&lt;&lt;</a>
+                <div id="chooseWords">
+                    <div id="minimize-ctn">
+                        <a href="#" id="minimize">X</a>
+                    </div>
+                    <h1>Magnet Poetry</h1>
+                    <details>
+                        <summary>More information...</summary>
+                        <details>
+                            <summary class="updates">Updates</summary>
+                            <ul>
+                                <li>Added 'My Words' section for custom word magnets.</li>
+                                <li>Implemented localStorage for browser-side caching of poems.</li>
+                                <li>Created customization options for background and magnets.</li>
+                                <li>Added feature to export canvas to JPEG.</li>
+                                <li>Changed action to delete word from canvas from 'long-click' to 'double-click' for
+                                    ease of use.</li>
+                                <li>Added ability to collapse sidebar for more canvas space.</li>
+                                <li>Adjusted layout.</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>About This</summary>
+                            <p>I created this because of the absolute lack of (free) magnetic poetry makers online.</p>
+                            <p>Also, as someone who eternally struggles with writer block, arranging a bunch of
+                                'magnets' feels a lot less like 'writing' and my brain likes that.</p>
+                            <p>All of the preloaded words are some of my favorites, but go ahead and add your own!</p>
+                            <p>Made by <a href="https://sadgrl.online/" target="_blank">sadgrl.online</a>
+                                <p>Report bugs or give feedback at <a
+                                        href="mailto:sadness@mail.sadgrl.online">sadness@mail.sadgrl.online</a>!</p>
+                            </p>
+                        </details>
+                        <details>
+                            <summary>How to Use</summary>
+                            <p>Drag these words onto the canvas. You can double-click (desktop) or long-press (mobile)
+                                to delete a word from the canvas.</p>
+                        </details>
+                    </details>
+                    <div class="customize">
+                        <details>
+                            <summary>Customize</summary>
+                            <div class="inner-customize">
+                                <a href="#" id="clearCustomization">clear all customization</a></p>
+                                <h3>Colors</h3>
+                                <div class="flex">
+                                    <div>
+                                        <div>
+                                            <strong>Canvas</strong></div>
+                                        <div><input type="color" id="canvasColor">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <strong>Magnets</strong></div>
+                                        <div><input type="color" id="magnetColor">
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <strong>Text</strong></div>
+                                        <div><input type="color" id="textColor">
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <strong>Border</strong></div>
+                                        <div><input type="color" id="borderColor">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3>Border</h3>
+                                <div class="flex">
+                                    <div><input id="solid" type="radio" name="border" value="solid" checked><label
+                                            for="radio">solid</label></div>
+                                    <div><input id="none" name="border" type="radio" value="none"><label
+                                            for="radio">none</label></div>
+                                    <div> <input id="shadow" name="border" type="radio" value="shadow"><label
+                                            for="radio">shadow</label></div>
+                                </div>
+                                <br>
+                                <h3>Magnet Tilt</h3>
+                                <div class="flex">
+                                    <div>
+                                        <input id="noTilt" type="radio" name="tilt" value="none" checked><label
+                                            for="tilt">none</label></div>
+                                    <div><input id="leftTilt" name="tilt" type="radio" value="left"><label
+                                            for="tilt">left</label></div>
+                                    <div> <input id="rightTilt" name="tilt" type="radio" value="right"><label
+                                            for="tilt">right</label></div>
+                                    <div> <input id="bothTilt" name="tilt" type="radio" value="both"><label
+                                            for="tilt">both</label></div>
+                                </div>
+                                <br>
+                                <h3>Font</h3>
+                                <select name="font" id="font">
+                                    <option value="sans-serif">Choose a Font</option>
+                                    <option value="Courier New">Courier New</option>
+                                    <option value="Times New Roman">Times New Roman</option>
+                                    <option value="Comic Sans MS">Comic Sans MS</option>
+                                    <option value="MS Gothic">MS Gothic</option>
+                                    <option value="Verdana">Verdana</option>
+                                    <option value="Tahoma">Tahoma</option>
+                                    <option value="Georgia">Georgia</option>
+                                    <option value="Arial">MS Gothic</option>
+                                </select><br>
+                                <h3>Background Image</h3>
+
+                                <input type="file" name="file" id="uploadBg"><br>
+                                <a href="#" id="clearBgImg">clear background</a><br>
+                                <h3>Background Image Settings</h3>
+                                <div class="flex">
+                                    <div><input id="repeat" type="radio" name="bgimg" value="repeat" checked><label
+                                            for="repeat">repeat</label></div>
+                                    <div> <input id="cover" name="bgimg" type="radio" value="cover"><label
+                                            for="radio">cover</label><br></div>
+                        </details>
+                        </details>
+                    </div>
+                    <p class="sorry">Sorry, that word already exists.</p>
+                    <div class="addWord"></div>
+                    <div class="flex-jc">
+                        <h3 class="myWords">My Words</h3>
+                        <h3><a href="#" id="addWord">+ Add word</a></h3>
+                    </div>
+                    <a href="#" id="clearBankHistory">clear all</a>
+                    <div id="myInput"></div>
+                    <div id="myWords">
+
+                    </div>
+                    <h3>Suffixes</h3>
+                    <div id="suffixes"></div>
+                    <h3>Common Words</h3>
+                    <div id="commonWords"></div>
+                    <h3>Nouns</h3>
+                    <div id="nouns"></div>
+                    <h3>Verbs</h3>
+                    <div id="verbs"></div>
+                    <h3>Other</h3>
+                    <div id="otherWords"></div>
+                </div>
+            </div>
+        </div>
+        <div id="canvasWrapper">
+            <a href="#" id="clearCanvas">Clear</a>
+            <a href="#" id="exportPoem">Export</a>
+
+            <div id="canvas" class="canvas">
+            </div>
+        </div>
+        <textarea id="exportText"></textarea>
+    </div>
+</body>
+
+</html>
