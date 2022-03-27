@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     // Hi! Welcome to my magnet poetry project! I love
     // poetry so much and have always loved magnet poetry.
     // I went looking for a good app to use to make some
@@ -533,7 +533,7 @@ $(function () {
 
     // === ON LOAD ===
     // this function runs every time the page is refreshed
-    $(function () {
+    $(function() {
         // if history exists, restore canvas
         if (JSON.parse(localStorage.getItem("savedCanvas")) !== null) {
             // if it finds something, it assigns it to a variable
@@ -616,7 +616,7 @@ $(function () {
 
     // thank you owocean for SAVING MY LIFE!!!
     // this function loads AFTER the DOM
-    $(window).on("load", function () {
+    $(window).on("load", function() {
         if (JSON.parse(localStorage.getItem("customization")) !== null) {
             // code here
 
@@ -705,17 +705,17 @@ $(function () {
     }
 
     // === EVENT: CLICK ON WORDBANK 'CLEAR ALL' ===
-    $("#clearBankHistory").on("click", function () {
+    $("#clearBankHistory").on("click", function() {
         clearStorage("words");
     });
 
     // === EVENT: CLICK ON CLEAR CANVAS ===
-    $("#clearCanvas").on("click", function () {
+    $("#clearCanvas").on("click", function() {
         clearStorage("magnets");
     });
 
     // === EVENT: CLEAR CUSTOMIZATION ===
-    $("#clearCustomization").on("click", function () {
+    $("#clearCustomization").on("click", function() {
         clearStorage("customization");
     });
     // END === CLEAR LOCALSTORAGE === //
@@ -803,7 +803,7 @@ $(function () {
     // this tells the #canvas element it is a 'droppable' location
     $("#canvas").droppable({
         accept: ".dragWord", // it accepts only items with this class
-        drop: function (e, ui) {
+        drop: function(e, ui) {
             // everything in this function is triggered when the word is dropped
             // this gets the word's ID (which is the word itself)
             var wordID = $(ui.draggable)[0].id;
@@ -854,7 +854,7 @@ $(function () {
                 // drag the word outside of the canvas.
                 $(clone).draggable({
                     containment: "parent",
-                    drag: function (e, ui) {}
+                    drag: function(e, ui) {}
                 });
             }
             saveCanvas();
@@ -901,46 +901,73 @@ $(function () {
         $(".mobile").css("display", "block");
         $(".desc").css("display", "none");
         $(".instruct").css("display", "none");
-        $(document).on("taphold", ".dropped-element", function () {
+        $(document).on("taphold", ".dropped-element", function() {
             $(this).remove();
+        });
+
+        // === MINIMIZING BANK (on mobile) ===
+        // when the 'x' button is clicked...
+        $("#minimize").on("click", function() {
+            // hide words
+            $("#chooseWords").css("display", "none");
+            // make height full
+            $(".wordBank").css("height", "5%");
+            $(".wordBankWrapper").css("width", "100%");
+            $(".wordBankWrapper").css("height", "5%");
+            // show maximize button
+            $("#maximize").css("display", "block");
+
+            $('#canvasWrapper').css("max-height", "50%");
+            $('#canvas').css("max-height", "100%");
+        });
+
+        // === MAXIMIZING BANK (on mobile) ===
+        // when the '<<' button is clicked...
+        $("#maximize").on("click", function() {
+            // show words
+            $("#chooseWords").css("display", "block");
+            // make width normal
+            // hide maximize button
+            $("#maximize").css("display", "none");
         });
     } else {
         // if not mobile, then the words are deleted on doubleclick
-        $(document).on("dblclick", ".dropped-element", function () {
+        $(document).on("dblclick", ".dropped-element", function() {
             var toDelete = $(this).text();
             $(this).remove();
             saveCanvas();
         });
+
+        // BEGIN: === WORD BANK ===
+
+        // === MINIMIZING BANK (on Desktop) ===
+        // when the 'x' button is clicked...
+        $("#minimize").on("click", function() {
+            // hide words
+            $("#chooseWords").css("display", "none");
+            // make height full
+            $(".wordBank").css("height", "100%");
+            // show maximize button
+            $("#maximize").css("display", "block");
+        });
+
+        // === MAXIMIZING BANK (on Desktop)===
+        // when the '<<' button is clicked...
+        $("#maximize").on("click", function() {
+            // show words
+            $("#chooseWords").css("display", "block");
+            // make width normal
+            $(".wordBankWrapper").css("width", "30%");
+            // hide maximize button
+            $("#maximize").css("display", "none");
+        });
+
     }
-
-    // BEGIN: === WORD BANK ===
-
-    // === MINIMIZING BANK ===
-    // when the 'x' button is clicked...
-    $("#minimize").on("click", function () {
-        // hide words
-        $("#chooseWords").css("display", "none");
-        // make height full
-        $(".wordBank").css("height", "100%");
-        // show maximize button
-        $("#maximize").css("display", "block");
-    });
-
-    // === MAXIMIZING BANK ===
-    // when the '<<' button is clicked...
-    $("#maximize").on("click", function () {
-        // show words
-        $("#chooseWords").css("display", "block");
-        // make width normal
-        $(".wordBankWrapper").css("width", "30%");
-        // hide maximize button
-        $("#maximize").css("display", "none");
-    });
 
     // === ADDING WORDS TO THE BANK ===
 
     // === EVENT: CLICK ON '+ ADD WORD'
-    $(document).on("click", "#addWord", function (e) {
+    $(document).on("click", "#addWord", function(e) {
         // create & append an input box
         var inputBox = `<div class="input"><input type="text" placeholder="press enter to submit" id="word"><input type="submit" id="submitWord" value="add"></div>`;
         $("#myInput").html(inputBox);
@@ -948,7 +975,7 @@ $(function () {
     });
 
     // === EVENT CLICK ON 'ADD WORD' ===
-    $(document).on("click", "#submitWord", function (e) {
+    $(document).on("click", "#submitWord", function(e) {
         // assign word to variable
         var newWord = $(this).siblings("#word").val();
         addWord(newWord);
@@ -958,9 +985,9 @@ $(function () {
     // === EVENT: CLICK IN INPUT BOX ===
     // Note: I nested these so it would only listen for the
     // enter keypress while the cursor is active in the input box.
-    $(document).on("focus", "#word", function (e) {
+    $(document).on("focus", "#word", function(e) {
         // === EVENT: PRESS ENTER ===
-        $("#word").on("keypress", function (event) {
+        $("#word").on("keypress", function(event) {
             if (event.keyCode == 13) {
                 // assign word to variable
                 var newWord = $(this).val();
@@ -971,7 +998,7 @@ $(function () {
     });
 
     // === EVENT: DOUBLE-CLICK ON WORD IN 'ADDWORDS'
-    $(document).on("dblclick", "#myWords > span", function (e) {
+    $(document).on("dblclick", "#myWords > span", function(e) {
         var removedWord = $(this).text();
         $(this).remove();
         removeWord(removedWord);
@@ -1029,7 +1056,7 @@ $(function () {
     // === BEGIN: CUSTOMIZATION EVENTS ===
 
     // === EVENT: CANVAS COLOR BACKGROUND CHANGE ===
-    $("#canvasColor").on("input", function () {
+    $("#canvasColor").on("input", function() {
         //var hexCode = rgbToHex($(this).val());
         customization.canvasColor = $(this).val();
         $("#canvas").css("background-color", customization.canvasColor);
@@ -1039,7 +1066,7 @@ $(function () {
     });
 
     // === EVENT: MAGNET COLOR BACKGROUND CHANGE ===
-    $(document).on("input", "#magnetColor", function () {
+    $(document).on("input", "#magnetColor", function() {
         //console.log($(this).val());
         customization.magnetColor = $(this).val();
         $(".magnet").css("background-color", $(this).val());
@@ -1048,7 +1075,7 @@ $(function () {
     });
 
     // === EVENT: MAGNET TEXT COLOR CHANGE ===
-    $("#textColor").on("input", function () {
+    $("#textColor").on("input", function() {
         customization.textColor = $(this).val();
         $(".magnet").css("color", $(this).val());
         //console.log(customization);
@@ -1057,7 +1084,7 @@ $(function () {
     });
 
     // === EVENT: MAGNET BORDER COLOR CHANGE ===
-    $("#borderColor").on("input", function () {
+    $("#borderColor").on("input", function() {
         var borderColor = $(this).val();
         customization.borderColor = borderColor;
         $(".magnet").css("border-color", borderColor);
@@ -1080,7 +1107,7 @@ $(function () {
     }
 
     // === EVENT: BORDER TYPE CHANGE ===
-    $("input[type=radio][name=border]").on("click", function () {
+    $("input[type=radio][name=border]").on("click", function() {
         var chosenBorder = $(this).val();
         console.log($(this).val());
         if (chosenBorder === "none") {
@@ -1103,7 +1130,7 @@ $(function () {
     });
 
     // === EVENT: MAGNET TILT CHANGE ===
-    $("input[type=radio][name=tilt]").on("input", function () {
+    $("input[type=radio][name=tilt]").on("input", function() {
         //console.log('noted');
         var chosenTilt = $(this).val();
         customization.magnetTilt = chosenTilt;
@@ -1131,7 +1158,7 @@ $(function () {
     });
 
     // === EVENT: MAGNET FONT CHANGE === //
-    $("#font").on("change", function (e) {
+    $("#font").on("change", function(e) {
         e.preventDefault();
         customization.magnetFont = $(this).val();
         var selected = $(this).val();
@@ -1141,10 +1168,10 @@ $(function () {
     var bg;
 
     // === EVENT: UPLOAD BACKGROUND CHANGE === //
-    $("#uploadBg").on("change", function (e) {
+    $("#uploadBg").on("change", function(e) {
         var file = e.target.files[0];
         var reader = new FileReader();
-        reader.onloadend = function () {
+        reader.onloadend = function() {
             bg = reader.result;
             $("#canvas").css("background-image", "url(" + reader.result + ")");
             customization.canvasBackgroundImage = "url(" + reader.result + ")";
@@ -1156,14 +1183,14 @@ $(function () {
     });
 
     // === EVENT: CLEAR BACKGROUND IMAGE
-    $("#clearBgImg").on("click", function () {
+    $("#clearBgImg").on("click", function() {
         $("#canvas").css("background-image", "none");
         customization.canvasBackgroundImage = "none";
         localStorage.setItem("customization", JSON.stringify(customization));
     });
 
     // === EVENT: BACKGROUND IMAGE SETTINGS CHANGE ===
-    $("input[type=radio][name=bgimg]").on("input", function () {
+    $("input[type=radio][name=bgimg]").on("input", function() {
         var chosenOption = $(this).val();
         if (chosenOption === "repeat") {
             $("#canvas").css("background-repeat", "repeat");
@@ -1180,7 +1207,7 @@ $(function () {
     // === EXPORT ===
 
     // === EVENT: CLICK ON "EXPORT" ===
-    $(document).on("click", "#exportPoem", function (e) {
+    $(document).on("click", "#exportPoem", function(e) {
         e.preventDefault();
         convert2image();
         $("#export").css("display", "block");
@@ -1195,7 +1222,7 @@ $(function () {
             .toJpeg(document.getElementById("canvas"), {
                 quality: 0.95
             })
-            .then(function (dataUrl) {
+            .then(function(dataUrl) {
                 var link = document.createElement("a");
                 link.download = "poem.jpeg";
                 link.href = dataUrl;
