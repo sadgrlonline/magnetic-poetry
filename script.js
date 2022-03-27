@@ -54,6 +54,7 @@ $(function() {
         "of",
         "in",
         "have",
+        "first",
         "not",
         "on",
         "as",
@@ -72,6 +73,7 @@ $(function() {
         "should",
         "was",
         "go",
+        "might",
         "were",
         "your",
         "us",
@@ -89,6 +91,8 @@ $(function() {
         "who",
         "what",
         "when",
+        "come",
+        "came",
         "where",
         "why",
         "won't",
@@ -127,7 +131,6 @@ $(function() {
         "mystery",
         "cliff",
         "forest",
-        "desert",
         "woods",
         "chains",
         "bat",
@@ -250,6 +253,7 @@ $(function() {
         "honeydew",
         "unknown",
         "sunbeam",
+        "home",
         "moment",
         "warrior",
         "day",
@@ -315,6 +319,8 @@ $(function() {
         "grow",
         "bask",
         "fold",
+        "split",
+        "splinter",
         "ignite",
         "illuminate",
         "intensify",
@@ -366,6 +372,7 @@ $(function() {
         "roar",
         "squeeze",
         "grasp",
+        "fragment",
         "catapult",
         "surrender",
         "march",
@@ -395,9 +402,12 @@ $(function() {
         "pale",
         "sharp",
         "sacred",
+        "beautiful",
+        "dark",
         "infinite",
         "unhurried",
         "flat",
+        "strange",
         "outer",
         "fair",
         "fresh",
@@ -449,7 +459,6 @@ $(function() {
         "snowy",
         "thick",
         "stagnant",
-        "grove",
         "purple",
         "black",
         "green",
@@ -526,6 +535,9 @@ $(function() {
     nounArr = nounArr.sort();
     verbArr = verbArr.sort();
     suffixesArr = suffixesArr.sort();
+    adjectiveArr = adjectiveArr.sort();
+    adverbArr = adverbArr.sort();
+    prepositionArr = prepositionArr.sort();
     otherArr = otherArr.sort();
     commonArr = commonArr.sort();
 
