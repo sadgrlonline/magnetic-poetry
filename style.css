@@ -201,11 +201,15 @@ p.none {
 #commonWords,
 #nouns,
 #verbs,
-#otherWords,
+#adjectives,
+#adverbs,
+#prepositions,
+
 #myWords {
     height: auto;
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 20px;
 }
 
 h3 {

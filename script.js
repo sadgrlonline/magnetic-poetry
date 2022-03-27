@@ -773,17 +773,33 @@ $(function() {
                     element +
                     "</span>"
                 );
+            } else if (adjectiveArr.includes(element)) {
+                $("#adjectives").append(
+                    '<span class="dragWord ui-droppable magnet" id="' +
+                    element +
+                    '">' +
+                    element +
+                    "</span>"
+                );
+            } else if (adverbArr.includes(element)) {
+                $("#adverbs").append(
+                    '<span class="dragWord ui-droppable magnet" id="' +
+                    element +
+                    '">' +
+                    element +
+                    "</span>"
+                );
+            } else if (prepositionArr.includes(element)) {
+                $("#prepositions").append(
+                    '<span class="dragWord ui-droppable magnet" id="' +
+                    element +
+                    '">' +
+                    element +
+                    "</span>"
+                );
             } else if (myWords !== null) {
                 if (myWords.includes(element)) {
                     $("#myWords").append(
-                        '<span class="dragWord ui-droppable magnet" id="' +
-                        element +
-                        '">' +
-                        element +
-                        "</span>"
-                    );
-                } else if (otherArr.includes(element)) {
-                    $("#otherWords").append(
                         '<span class="dragWord ui-droppable magnet" id="' +
                         element +
                         '">' +
