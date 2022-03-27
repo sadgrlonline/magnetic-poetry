@@ -380,7 +380,6 @@ details>p {
     }
 
     .wordBankWrapper {
-        order: 2;
         max-width: 100%;
         max-height: 50vh;
         padding-top: 0;
@@ -396,6 +395,7 @@ details>p {
 
     #canvasWrapper {
         max-height: 50vh;
+        position: relative;
     }
 
     .canvas {
